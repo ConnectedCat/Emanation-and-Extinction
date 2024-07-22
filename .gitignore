@@ -7,3 +7,8 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Visual Studio Helper Files #
+##############################
+.vs
+.vs*
