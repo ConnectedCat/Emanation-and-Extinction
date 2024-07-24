@@ -12,3 +12,7 @@ Thumbs.db
 ##############################
 .vs
 .vs*
+
+# Removing .tox's to save on storage #
+######################################
+*.tox
