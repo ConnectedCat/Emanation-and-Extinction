@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project Documentation</title>
+    <title>Emanation and Extinction: the Life Cycle and Unregulated Interractions across the Infinite Lattice of Light</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+    <h1>Emanation and Extinction: the Life Cycle and Unregulated Interractions across the Infinite Lattice of Light</h1>
+    <h3>Interactive installation. Maxim Safioulline (ConnectedCat), Minyoung Joo, Sinhye (Sunny) Kim.</h3>
     <img src="assets/output1.gif" alt="StreamDiffusion output 1" />
+    <p>The project explores methods and approaches to promoting public engagement with interactive generative graphic environments, and algorithmic computer art in general.<p>
+    <p>Key points of engagement under exploration are: initial attention, promoting scripted interactions, promoting unscripted interactions.</p>
+    <p>We started with the folloing initial assumptions:</p>
+    <ul>
+        <li>Visual representation in a graphic environment promotes engagement (“people love seeing themselves”)</li>
+        <li>It is possible to include visual clues and instructions into computer graphics environments via storytelling elements (“drink me” labels)</li>
+    </ul>
+
+    <h3>Testing batch 1</h3>
+    <div id="paginated_gallery" class="gallery">
+        <div class="gallery_scroller">
+            <div><img src="assets/DividingCellsPromptwithHandInput2_Jul24.png" alt=""></div>
+            <div><img src="assets/DividingCellsPromptwithHandInput3_Jul24.png" alt=""></div>
+            <div><img src="assets/OpticalflowtoStreamdiffusion_Jul24.png" alt=""></div>
+            <div><img src="assets/OpticalflowtoStreamdiffusion2_Jul24.png" alt=""></div>
+        </div>
+        <span class="btn prev"></span>
+        <span class="btn next"></span>
+    </div>
 </body>
+<script>
+    const gallery = document.querySelector('.gallery');
+    const gallery_scroller = gallery.querySelector('.gallery_scroller');
+    const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
+    
+    gallery.querySelector('.btn.next').addEventListener('click', scrollToNextPage);
+    gallery.querySelector('.btn.prev').addEventListener('click', scrollToPrevPage);
+    
+    // For paginated scrolling, simply scroll the gallery one item in the given
+    // direction and let css scroll snaping handle the specific alignment.
+    function scrollToNextPage() {
+      gallery_scroller.scrollBy(gallery_item_size, 0);
+    }
+    function scrollToPrevPage() {
+      gallery_scroller.scrollBy(-gallery_item_size, 0);
+    }
+    
+    </script>
 </html>
