@@ -7,7 +7,7 @@
     <title>Emanation and Extinction: the Life Cycle and Unregulated Interractions across the Infinite Lattice of Light
     </title>
     <link rel="stylesheet" href="style.css">
-
+    <script src="gallery_scroller.js"></script>
 </head>
 
 <body>
@@ -37,75 +37,65 @@
         <span class="btn prev"></span>
         <span class="btn next"></span>
     </div>
+    <section id="concept">
+        <h2>Core concept</h2>
+        <p>The project explores methods and approaches to promoting public engagement with
+            interactive generative graphic environments, and algorithmic computer art in general.</p>
+        <p>Key points of engagement under exploration are: initial attention, promoting scripted
+            interactions, promoting unscripted interactions.</p>
+        <p>We started with the following initial assumptions:</p>
+        <ul>
+            <li>Visual representation in a graphic environment promotes
+                engagement (&ldquo;people love seeing themselves&rdquo;)</li>
+            <li>It is possible to include visual clues and instructions into
+                computer graphics environments via storytelling elements (&ldquo;drink me&rdquo; labels)</li>
+        </ul>
+    </section>
 
-    <h2>Core concept</h2>
-    <p>The project explores methods and approaches to promoting public engagement with
-        interactive generative graphic environments, and algorithmic computer art in general.</p>
-    <p>Key points of engagement under exploration are: initial attention, promoting scripted
-        interactions, promoting unscripted interactions.</p>
-    <p>We started with the following initial assumptions:</p>
-    <ul>
-        <li>Visual representation in a graphic environment promotes
-            engagement (&ldquo;people love seeing themselves&rdquo;)</li>
-        <li>It is possible to include visual clues and instructions into
-            computer graphics environments via storytelling elements (&ldquo;drink me&rdquo; labels)</li>
-    </ul>
-    <h2>Technical Implementation</h2>
-    <p>The installation consists of softwares and hardware components. While the software
-        components are either free, open-source or low cost, and some of the hardware used are commonplace, the
-        demands of generative algorithms require a high-end graphics card to facilitate real-time image
-        generation.</p>
-    <h3>Software</h3>
-    <p>The software combines multiple components using <a href="https://derivative.ca/">TouchDesigner</a> as the
-        foundation. The video input is processed through a plugin component by <a
-            href="https://www.torinblankensmith.com/">Torin Blankensmith</a> based on <a
-            href="https://ai.google.dev/edge/mediapipe/solutions/guide">Google MediaPipe</a> with additional
-        customisations. The machine learning models implemented in the components allow us to recognize the structure of
-        human faces, hands, and bodies. This information is then processed through several generative graphic
-        approaches, like <a
-            href="https://en.wikipedia.org/wiki/Reaction%25E2%2580%2593diffusion_system">Reaction-Diffusion</a> and <a
-            href="https://en.wikipedia.org/wiki/Optical_flow">Optical Flow</a>, with addition of <a
-            href="https://en.wikipedia.org/wiki/Simplex_noise">Simplex noise</a>. </p>
-    <p>The resulting signal is then fed as an image to a <a
-            href="hhttps://github.com/cumulo-autumn/StreamDiffusion">StreamDiffusion</a> system - another plugin
-        component, made by <a href="https://www.patreon.com/dotsimulate/posts">Lyell Hintz (dotsimulate)</a>. We tried
-        several different diffusion models for image processing and settled on <a
-            href="https://huggingface.co/stabilityai/sdxl-turbo">Stable Diffusion XL Turbo</a>, a model optimized for
-        real-time image generation.</p>
-    <h3>Hardware</h3>
-    <p>The hardware is relatively uncomplicated, with a simple webcam used for video input and a large-screen TV or
-        projector used for output. The most demanding part is the GPU. In our case we used an NVidia 4080 Ti, and were
-        able to achieve from 7-8 upto 16-20 fps on the image generation, depending on the configuration.</p>
+    <section id="implementation">
+        <h2>Technical Implementation</h2>
+        <p>The installation consists of softwares and hardware components. While the software
+            components are either free, open-source or low cost, and some of the hardware used are commonplace, the
+            demands of generative algorithms require a high-end graphics card to facilitate real-time image
+            generation.</p>
+        <h3>Software</h3>
+        <p>The software combines multiple components using <a href="https://derivative.ca/">TouchDesigner</a> as the
+            foundation. The video input is processed through a plugin component by <a
+                href="https://www.torinblankensmith.com/">Torin Blankensmith</a> based on <a
+                href="https://ai.google.dev/edge/mediapipe/solutions/guide">Google MediaPipe</a> with additional
+            customisations. The machine learning models implemented in the components allow us to recognize the structure of
+            human faces, hands, and bodies. This information is then processed through several generative graphic
+            approaches, like <a
+                href="https://en.wikipedia.org/wiki/Reaction%25E2%2580%2593diffusion_system">Reaction-Diffusion</a> and <a
+                href="https://en.wikipedia.org/wiki/Optical_flow">Optical Flow</a>, with addition of <a
+                href="https://en.wikipedia.org/wiki/Simplex_noise">Simplex noise</a>. </p>
+        <p>The resulting signal is then fed as an image to a <a
+                href="hhttps://github.com/cumulo-autumn/StreamDiffusion">StreamDiffusion</a> system - another plugin
+            component, made by <a href="https://www.patreon.com/dotsimulate/posts">Lyell Hintz (dotsimulate)</a>. We tried
+            several different diffusion models for image processing and settled on <a
+                href="https://huggingface.co/stabilityai/sdxl-turbo">Stable Diffusion XL Turbo</a>, a model optimized for
+            real-time image generation.</p>
+        <h3>Hardware</h3>
+        <p>The hardware is relatively uncomplicated, with a simple webcam used for video input and a large-screen TV or
+            projector used for output. The most demanding part is the GPU. In our case we used an NVidia 4080 Ti, and were
+            able to achieve from 7-8 upto 16-20 fps on the image generation, depending on the configuration.</p>
 
-    <h3>System Configuration</h3>
-    <figure>
-        <img src="assets/SystemDiagram.jpg" alt="System Configuration Diagram">
-        <figcaption>System Configuration Diagram</figcaption>
-    </figure>
-    <p>For additional resources on Media Pipe in TouchDesigner please refer to <a href="https://github.com/torinmb/mediapipe-touchdesigner" target="_blank" rel="noopener noreferrer">MediaPipe TouchDesigner Plugin</a> or <a href="https://youtu.be/Cx4Ellaj6kk?si=S6mM9uJBn46SH1JY" target="_blank" rel="noopener noreferrer">a video alternative</a>.</p>
-    <p>For additional resources on Stream Diffusion in TouchDesigner please refer to the page<a href="https://derivative.ca/community-post/tutorial/setting-your-system-streamdiffusion-td/69338" target="_blank" rel="noopener noreferrer">Setting up your system for StreamDiffusion TD For Beginners</a> or <a href="https://youtu.be/X4rlC6y1ahw?si=ZMb3LY-1GESUpnfo" target="_blank" rel="noopener noreferrer">a video alternative</a>.</p>
+        <h3>System Configuration</h3>
+        <figure>
+            <img src="assets/SystemDiagram.jpg" alt="System Configuration Diagram">
+            <figcaption>System Configuration Diagram</figcaption>
+        </figure>
+        <p>For additional resources on Media Pipe in TouchDesigner please refer to <a href="https://github.com/torinmb/mediapipe-touchdesigner" target="_blank" rel="noopener noreferrer">MediaPipe TouchDesigner Plugin</a> or <a href="https://youtu.be/Cx4Ellaj6kk?si=S6mM9uJBn46SH1JY" target="_blank" rel="noopener noreferrer">a video alternative</a>.</p>
+        <p>For additional resources on Stream Diffusion in TouchDesigner please refer to the page<a href="https://derivative.ca/community-post/tutorial/setting-your-system-streamdiffusion-td/69338" target="_blank" rel="noopener noreferrer">Setting up your system for StreamDiffusion TD For Beginners</a> or <a href="https://youtu.be/X4rlC6y1ahw?si=ZMb3LY-1GESUpnfo" target="_blank" rel="noopener noreferrer">a video alternative</a>.</p>
+    </section>
+    
+    <section id="process">
+        <h2>Design process</h2>
+        <p></p>
+    </section>
 
-    <h2>Design process</h2>
-    <p></p>
+    <section>
     <h2>Key learnings</h2>
+    </section> 
 </body>
-<script>
-    const gallery = document.querySelector('.gallery');
-    const gallery_scroller = gallery.querySelector('.gallery_scroller');
-    const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
-
-    gallery.querySelector('.btn.next').addEventListener('click', scrollToNextPage);
-    gallery.querySelector('.btn.prev').addEventListener('click', scrollToPrevPage);
-
-    // For paginated scrolling, simply scroll the gallery one item in the given
-    // direction and let css scroll snaping handle the specific alignment.
-    function scrollToNextPage() {
-        gallery_scroller.scrollBy(gallery_item_size, 0);
-    }
-    function scrollToPrevPage() {
-        gallery_scroller.scrollBy(-gallery_item_size, 0);
-    }
-
-</script>
-
 </html>
